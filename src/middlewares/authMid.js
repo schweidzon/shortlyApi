@@ -41,7 +41,7 @@ export async function authSignUp(req, res, next) {
     const user = req.body
 
     try {
-        const checkUserExist = await db.query(`SELECT * FROM users WHERE email = LOWER('${user.email}')`)
+        const checkUserExist = await db.query(`SELECT * FROM users WHERE email = '${user.email}'`)
 
         if (checkUserExist.rows[0]) return res.sendStatus(409)
 
