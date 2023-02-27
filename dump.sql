@@ -178,6 +178,8 @@ INSERT INTO public.users VALUES (3, 'Davi Lucas Macedo', 'alexandree2@gmail.com'
 INSERT INTO public.users VALUES (4, 'Felícia Martins', 'yago_moraes@live.com', '$2b$10$hlZhfD4EkYgpMRkQTPy5UujDxkpNqcX4ftbZm3dzL9xCjTezxPnqK', 0, '2023-02-27 18:02:17.557946');
 INSERT INTO public.users VALUES (5, 'Silas Reis ', 'oflia_franco13@hotmail.com', '$2b$10$oJbWYzKcA33bh74Q/FXxWO1ZrAqNuBpjRYWIk.VhpMxDqJ9RtOzV6', 0, '2023-02-27 18:20:50.551998');
 INSERT INTO public.users VALUES (6, 'Silas Reis ', 'rato123@hotmail.com', '$2b$10$tjqprN4ROFgndy/BHAU68uMiCxL2QLKkVdqNnQ/URu6/GevekL.OW', 0, '2023-02-27 18:23:16.665263');
+INSERT INTO public.users VALUES (7, 'Alice Saraiva', 'pedrohenrique_silva@bol.com.br', '$2b$10$VA9hrZik0DCQnt4y.ngQPeFd536YY9DsY6KtczeBQfrVsRJDNeSPu', 0, '2023-02-27 18:38:51.356452');
+INSERT INTO public.users VALUES (8, 'Alice Saraiva', 'pedrohenrique.silva@bol.com.br', '$2b$10$dCsQmJmF90t.ZgMv7heWROPWy5ci2at4Ujmvm5FwO1niUNNPGgih2', 0, '2023-02-27 18:47:16.840869');
 
 
 --
@@ -198,7 +200,7 @@ SELECT pg_catalog.setval('public.urls_id_seq', 1, false);
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.users_id_seq', 6, true);
+SELECT pg_catalog.setval('public.users_id_seq', 8, true);
 
 
 --
