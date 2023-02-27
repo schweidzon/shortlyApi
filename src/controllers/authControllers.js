@@ -19,7 +19,7 @@ export async function signIn(req, res) {
     const token = res.locals.token
     try {
         const result = await db.query(`SELECT * FROM sessions WHERE token = '${token}'`)
-        res.status(200).send(result.rows[0].token)
+        res.status(200).send({token: result.rows[0].token})
     } catch (error) {
         console.log(error.message)
         return res.status(500).send(error.message)
