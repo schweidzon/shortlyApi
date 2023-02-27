@@ -6,6 +6,6 @@ import { shortenUrlSchema } from "../schemas/urlSchemas.js";
 
 const urlRoutes = Router()
 
-urlRoutes.post("/url/shorten", authValidation, validateSchema(shortenUrlSchema), shortenUrl)
+urlRoutes.post("/urls/shorten", validateSchema(shortenUrlSchema), authValidation, shortenUrl)
 
 export default urlRoutes

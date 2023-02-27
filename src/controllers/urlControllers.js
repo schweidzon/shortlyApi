@@ -15,7 +15,7 @@ export async function shortenUrl(req, res) {
 
         const urlInsertion = await db.query(`INSERT INTO urls (user_token, url, "shortUrl") VALUES ($1, $2, $3) RETURNING id`, [token, url, shortUrl])
 
-        res.send({ id: urlInsertion.rows[0].id, shortUrl })
+        res.status(201).send({ id: urlInsertion.rows[0].id, shortUrl })
 
     } catch (error) {
         console.log(error.message)
