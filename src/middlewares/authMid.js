@@ -2,6 +2,32 @@ import bcrypt from 'bcrypt'
 import db from '../config/database.js'
 import { v4 as uuidV4 } from "uuid"
 
+export async function authValidation(req, res, next) {
+    const user = req.body
+
+    const {authorization} = req.headers
+
+    const token = authorization?.replace("Bearer", "")
+    
+    if(!token) return res.sendStatus(401)
+
+    try {
+        const checkSession = await db.query(`SELECT * FROM sesssions WHERE token = '${token}'`)
+
+        if(!checkSession.rows[0]) return res.sendStatus(401)
+        
+        const checkUserExist = await db.query(`SELECT * FROM USERS WHERE email = '${user.email}'`)
+
+        if(!checkUserExist.rows[0]) return res.sendStatus(401)
+
+        next()
+    } catch (error) {
+        console.log(error.message)
+        return res.status(500).send(error.message)
+        
+    }
+}
+
 export async function authSignUp(req, res, next) {
     const user = req.body
     
