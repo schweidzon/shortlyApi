@@ -162,6 +162,9 @@ INSERT INTO public.sessions VALUES (4, 1, 'fdf899cd-9aaf-4857-b858-6c47f9553331'
 --
 
 INSERT INTO public.users VALUES (1, 'Davi Lucas Macedo', 'alexandre@gmail.com', '$2b$10$jOvU7zZ3MWtyQEW1JooVa.wCllH.QFl58179b9UtXPc7Bk0BeTLIK', 0, '2023-02-27 17:09:59.090377');
+INSERT INTO public.users VALUES (2, 'Davi Lucas Macedo', 'alexandree@gmail.com', '$2b$10$k9PFM8g04aIzciAMcJWd1OXeLejeKlFFvEQbL3x1fdUZ/q6kGqZxa', 0, '2023-02-27 17:58:55.229279');
+INSERT INTO public.users VALUES (3, 'Davi Lucas Macedo', 'alexandree2@gmail.com', '$2b$10$FUe7heInH1wJnKtzYgOHTugzDgBIyvhuiEmbDcgBdP9yYKa8uosCm', 0, '2023-02-27 18:00:01.294043');
+INSERT INTO public.users VALUES (4, 'Felícia Martins', 'yago_moraes@live.com', '$2b$10$hlZhfD4EkYgpMRkQTPy5UujDxkpNqcX4ftbZm3dzL9xCjTezxPnqK', 0, '2023-02-27 18:02:17.557946');
 
 
 --
@@ -182,7 +185,7 @@ SELECT pg_catalog.setval('public.urls_id_seq', 1, false);
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.users_id_seq', 1, true);
+SELECT pg_catalog.setval('public.users_id_seq', 4, true);
 
 
 --
