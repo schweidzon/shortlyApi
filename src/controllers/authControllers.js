@@ -10,7 +10,8 @@ export async function signUp(req, res) {
         await db.query(`INSERT INTO users (name, email, password) VALUES ('${user.name}', LOWER('${user.email}'), '${encryptPassword}')`)
         res.sendStatus(201) 
     } catch (error) {
-        console.log(error)
+        console.log(error.message)
+        return res.status(500).send(error.message)
     }
 }
 
@@ -20,6 +21,8 @@ export async function signIn(req, res) {
         const result = await db.query(`SELECT * FROM sessions WHERE token = '${token}'`)
         res.status(200).send(result.rows[0].token)
     } catch (error) {
+        console.log(error.message)
+        return res.status(500).send(error.message)
         
     }
 
