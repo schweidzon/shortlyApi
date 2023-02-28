@@ -102,6 +102,8 @@ export async function redirectToUrl(req, res) {
 
         await db.query(`UPDATE urls SET "visitCount" = "visitCount" + 1 WHERE id = $1`, [url.rows[0].id])
 
+        await db.query(`UPDATE users SET "visitCount" = "visitCount" + 1 WHERE id = $1`, [url.rows[0].user_id])
+
 
         res.redirect(url.rows[0].url)
     } catch (error) {
