@@ -210,6 +210,7 @@ INSERT INTO public.users VALUES (8, 'Alice Saraiva', 'pedrohenrique.silva@bol.co
 INSERT INTO public.users VALUES (11, 'danniel', 'dannielsch@gmail.com', '$2b$10$toc30eGLeD7DULcE99Im5O61fQscvj81d/OBHZwWNTATB7eVxNXPO', 0, '2023-02-27 20:55:32.834641', 0);
 INSERT INTO public.users VALUES (13, 'danniell', 'dannielsch3@gmail.com', '$2b$10$sCV9UO3U4wgbipMD/VpYfuuobzdjma.QItK5c79H74P0e0gpVYHfe', 4, '2023-02-28 08:31:22.500132', 9);
 INSERT INTO public.users VALUES (12, 'danniel', 'dannielsch2@gmail.com', '$2b$10$p/Jj0VUscTA71DhnRZHWxuS.JD8dfz/7TzCOEoR0705kYKVinFeLW', 4, '2023-02-27 21:42:08.33581', 20);
+INSERT INTO public.users VALUES (14, 'sr. danniell', 'dannielsch31@gmail.com', '$2b$10$B5817GtslV0fubcWd2IVeOsrlWdSHTmxMyrAMVfAsng6Nuk/9d/qW', 0, '2023-02-28 09:54:18.403041', 0);
 
 
 --
@@ -230,7 +231,7 @@ SELECT pg_catalog.setval('public.urls_id_seq', 15, true);
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.users_id_seq', 13, true);
+SELECT pg_catalog.setval('public.users_id_seq', 14, true);
 
 
 --
