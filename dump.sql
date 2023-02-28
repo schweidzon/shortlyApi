@@ -58,10 +58,10 @@ ALTER SEQUENCE public.sessions_id_seq OWNED BY public.sessions.id;
 
 CREATE TABLE public.urls (
     id integer NOT NULL,
-    user_token text NOT NULL,
+    user_id text NOT NULL,
     url text NOT NULL,
     "shortUrl" text NOT NULL,
-    "vistiCount" integer DEFAULT 0 NOT NULL,
+    "visitCount" integer DEFAULT 0 NOT NULL,
     "createdAt" timestamp without time zone
 );
 
@@ -160,12 +160,53 @@ INSERT INTO public.sessions VALUES (12, 6, 'd0202c3a-aa9c-4a2e-8a9e-7ca4ac42c7bf
 INSERT INTO public.sessions VALUES (13, 6, '12173ccf-40e7-4555-a592-73b53a9ec7ec', '2023-02-27 18:23:32.8862');
 INSERT INTO public.sessions VALUES (14, 6, 'b803bcdf-5705-457e-95d3-cfc824c3b2d6', '2023-02-27 18:23:36.055916');
 INSERT INTO public.sessions VALUES (15, 6, '0e9e0ce5-e170-49a8-a8c5-696668b30c7e', '2023-02-27 18:23:41.586342');
+INSERT INTO public.sessions VALUES (16, 11, 'c8c88a59-be66-4e84-a049-8dd99a83dc5b', '2023-02-27 20:56:11.252614');
+INSERT INTO public.sessions VALUES (17, 12, '639f8003-1235-4f5f-b191-ba5d77b65407', '2023-02-27 21:42:17.668772');
+INSERT INTO public.sessions VALUES (18, 12, '42484a11-212c-43ed-bf23-6ea986e18bbb', '2023-02-27 22:15:06.88467');
+INSERT INTO public.sessions VALUES (19, 12, '5f507cf5-8054-4b83-b274-a4644a84b0c2', '2023-02-27 22:15:36.250676');
+INSERT INTO public.sessions VALUES (20, 11, 'cd476154-75cf-4e2b-9adb-9e7056ab5fcb', '2023-02-27 22:15:58.923511');
+INSERT INTO public.sessions VALUES (21, 11, '3a99a02d-48f3-4b1f-9ae7-4e27fbc9fccb', '2023-02-28 08:05:49.517011');
+INSERT INTO public.sessions VALUES (22, 11, '7e02ef0f-7393-42c3-bc87-46261d045f5d', '2023-02-28 08:10:24.205549');
+INSERT INTO public.sessions VALUES (23, 11, '5fabc680-183e-45e3-a407-c12d4a029f11', '2023-02-28 08:11:56.722335');
+INSERT INTO public.sessions VALUES (24, 11, 'd0794f79-9a5e-4063-94e3-a9200c5f5d56', '2023-02-28 08:12:35.740458');
+INSERT INTO public.sessions VALUES (25, 11, '793d4e78-42cb-4519-bb0d-869580577402', '2023-02-28 08:15:23.560269');
+INSERT INTO public.sessions VALUES (26, 11, 'f76ce712-e7e4-465e-b1c8-19268ab089a1', '2023-02-28 08:17:26.751854');
+INSERT INTO public.sessions VALUES (27, 11, '04f923b3-4561-48c3-bf73-d4d58f77f98e', '2023-02-28 08:19:22.043965');
+INSERT INTO public.sessions VALUES (28, 13, 'a9a3434a-cb2e-435d-a36b-f40fb7308b2b', '2023-02-28 08:31:29.78585');
 
 
 --
 -- Data for Name: urls; Type: TABLE DATA; Schema: public; Owner: -
 --
 
+INSERT INTO public.urls VALUES (2, 'fdf899cd-9aaf-4857-b858-6c47f9553331', 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'IUcPuR9t32tzCYF5eWeE8', 0, NULL);
+INSERT INTO public.urls VALUES (3, 'fdf899cd-9aaf-4857-b858-6c47f9553331', 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'njVSEcee8v2n_wpXJcmwb', 0, NULL);
+INSERT INTO public.urls VALUES (1, 'fdf899cd-9aaf-4857-b858-6c47f9553331', 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', '5TYVNFs2xolBSTUmIT3Ja', 1, NULL);
+INSERT INTO public.urls VALUES (4, 'fdf899cd-9aaf-4857-b858-6c47f9553331', 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', '1JfH7kE3weOSvrmzlRooA', 5, NULL);
+INSERT INTO public.urls VALUES (6, 'c8c88a59-be66-4e84-a049-8dd99a83dc5b', 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'JCAkOodqZn0EuKdzZIuIw', 0, NULL);
+INSERT INTO public.urls VALUES (7, 'c8c88a59-be66-4e84-a049-8dd99a83dc5b', 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'mn8iEj84BdQTL1pHnX13V', 5, NULL);
+INSERT INTO public.urls VALUES (5, 'c8c88a59-be66-4e84-a049-8dd99a83dc5b', 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', '5vZ5u77ZO--BziqoLZOKr', 4, NULL);
+INSERT INTO public.urls VALUES (8, '3a99a02d-48f3-4b1f-9ae7-4e27fbc9fccb', 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'BxPgAaVCUk_dDmC8txOMF', 0, NULL);
+INSERT INTO public.urls VALUES (9, '3a99a02d-48f3-4b1f-9ae7-4e27fbc9fccb', 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'EIsc--b52bPTgBlFl-Zpr', 0, NULL);
+INSERT INTO public.urls VALUES (10, '3a99a02d-48f3-4b1f-9ae7-4e27fbc9fccb', 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'sMRxqtsGcbM4jYhPQ9Lr4', 0, NULL);
+INSERT INTO public.urls VALUES (11, '3a99a02d-48f3-4b1f-9ae7-4e27fbc9fccb', 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', '75_xAOksHIGSl9uhHBU9q', 0, NULL);
+INSERT INTO public.urls VALUES (12, '3a99a02d-48f3-4b1f-9ae7-4e27fbc9fccb', 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'lzY3eJM8cvkXR_mX_Ge_M', 0, NULL);
+INSERT INTO public.urls VALUES (13, '3a99a02d-48f3-4b1f-9ae7-4e27fbc9fccb', 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'A6hgEUEoVGXuUeCcROkV0', 0, NULL);
+INSERT INTO public.urls VALUES (14, '793d4e78-42cb-4519-bb0d-869580577402', 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', '7rkwZpat', 0, NULL);
+INSERT INTO public.urls VALUES (15, '793d4e78-42cb-4519-bb0d-869580577402', 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'JTYczEuG', 0, NULL);
+INSERT INTO public.urls VALUES (16, '04f923b3-4561-48c3-bf73-d4d58f77f98e', 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'XTuI9nSj', 0, NULL);
+INSERT INTO public.urls VALUES (17, '04f923b3-4561-48c3-bf73-d4d58f77f98e', 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', '4wZKJGOi', 0, NULL);
+INSERT INTO public.urls VALUES (18, '04f923b3-4561-48c3-bf73-d4d58f77f98e', 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'DHQjibgi', 0, NULL);
+INSERT INTO public.urls VALUES (19, '04f923b3-4561-48c3-bf73-d4d58f77f98e', 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', '36LI16DU', 0, NULL);
+INSERT INTO public.urls VALUES (20, '04f923b3-4561-48c3-bf73-d4d58f77f98e', 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'yMSrK-pt', 0, NULL);
+INSERT INTO public.urls VALUES (21, '04f923b3-4561-48c3-bf73-d4d58f77f98e', 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'c_l6D9pB', 0, NULL);
+INSERT INTO public.urls VALUES (22, '04f923b3-4561-48c3-bf73-d4d58f77f98e', 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'KwFUQktd', 0, NULL);
+INSERT INTO public.urls VALUES (23, '04f923b3-4561-48c3-bf73-d4d58f77f98e', 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'uQDzSF1H', 0, NULL);
+INSERT INTO public.urls VALUES (24, '11', 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'dupQc_3x', 0, NULL);
+INSERT INTO public.urls VALUES (25, '11', 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'I0MakSg4', 0, NULL);
+INSERT INTO public.urls VALUES (27, '11', 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'Yp98EmEH', 3, NULL);
+INSERT INTO public.urls VALUES (26, '11', 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', '7Mb3QJws', 5, NULL);
+INSERT INTO public.urls VALUES (28, '13', 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', '_tlvtMcx', 1, NULL);
 
 
 --
@@ -180,27 +221,30 @@ INSERT INTO public.users VALUES (5, 'Silas Reis ', 'oflia_franco13@hotmail.com',
 INSERT INTO public.users VALUES (6, 'Silas Reis ', 'rato123@hotmail.com', '$2b$10$tjqprN4ROFgndy/BHAU68uMiCxL2QLKkVdqNnQ/URu6/GevekL.OW', 0, '2023-02-27 18:23:16.665263');
 INSERT INTO public.users VALUES (7, 'Alice Saraiva', 'pedrohenrique_silva@bol.com.br', '$2b$10$VA9hrZik0DCQnt4y.ngQPeFd536YY9DsY6KtczeBQfrVsRJDNeSPu', 0, '2023-02-27 18:38:51.356452');
 INSERT INTO public.users VALUES (8, 'Alice Saraiva', 'pedrohenrique.silva@bol.com.br', '$2b$10$dCsQmJmF90t.ZgMv7heWROPWy5ci2at4Ujmvm5FwO1niUNNPGgih2', 0, '2023-02-27 18:47:16.840869');
+INSERT INTO public.users VALUES (11, 'danniel', 'dannielsch@gmail.com', '$2b$10$toc30eGLeD7DULcE99Im5O61fQscvj81d/OBHZwWNTATB7eVxNXPO', 0, '2023-02-27 20:55:32.834641');
+INSERT INTO public.users VALUES (12, 'danniel', 'dannielsch2@gmail.com', '$2b$10$p/Jj0VUscTA71DhnRZHWxuS.JD8dfz/7TzCOEoR0705kYKVinFeLW', 0, '2023-02-27 21:42:08.33581');
+INSERT INTO public.users VALUES (13, 'danniell', 'dannielsch3@gmail.com', '$2b$10$sCV9UO3U4wgbipMD/VpYfuuobzdjma.QItK5c79H74P0e0gpVYHfe', 0, '2023-02-28 08:31:22.500132');
 
 
 --
 -- Name: sessions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.sessions_id_seq', 15, true);
+SELECT pg_catalog.setval('public.sessions_id_seq', 28, true);
 
 
 --
 -- Name: urls_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.urls_id_seq', 1, false);
+SELECT pg_catalog.setval('public.urls_id_seq', 28, true);
 
 
 --
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.users_id_seq', 8, true);
+SELECT pg_catalog.setval('public.users_id_seq', 13, true);
 
 
 --

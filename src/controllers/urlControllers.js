@@ -7,13 +7,18 @@ export async function shortenUrl(req, res) {
 
     const token = res.locals.token
 
-    const shortUrl = nanoid()
-    console.log(shortUrl)
+    console.log(token)
+
+    const shortUrl = nanoid(8)
 
 
     try {
 
-        const urlInsertion = await db.query(`INSERT INTO urls (user_token, url, "shortUrl") VALUES ($1, $2, $3) RETURNING id`, [token, url, shortUrl])
+        const getUserId = await db.query(`SELECT * FROM sessions JOIN users ON users.id = sessions.user_id WHERE token = $1`, [token])
+
+        console.log(getUserId.rows[0].user_id)
+
+        const urlInsertion = await db.query(`INSERT INTO urls (user_id, url, "shortUrl") VALUES ($1, $2, $3) RETURNING id`, [getUserId.rows[0].user_id, url, shortUrl])
 
         res.status(201).send({ id: urlInsertion.rows[0].id, shortUrl })
 
@@ -48,17 +53,27 @@ export async function getUrlById(req, res) {
 export async function getUsersUrls(req, res) {
 
     const token = res.locals.token
+    console.log(token)
 
     try {
-        const user = await db.query(`SELECT users.id, users.name
-         FROM sessions JOIN users ON sessions.user_id = users.id  JOIN urls ON user_token = $1 WHERE token = $1 GROUP BY users.id`, [token])
+
+        const user = await db.query(`SELECT users.id, users.name FROM sessions JOIN users ON users.id = sessions.user_id WHERE token = $1`, [token])
+
+
         const usersUrls = await db.query(`SELECT json_agg(json_build_object('id', urls.id, 'shortUrl', urls."shortUrl", 'url', urls.url, 'visitCount', urls."visitCount")) AS "shortenedUrls"
         FROM urls
-        WHERE user_token = $1`, [token])
+        WHERE user_id = $1`, [user.rows[0].id])
 
-        const totalVistCount = (usersUrls.rows[0].shortenedUrls).reduce((acc, curr) => acc + parseInt(curr.visitCount), 0)
-        user.rows[0].visitCount = totalVistCount
-        user.rows[0].shortenedUrls = usersUrls.rows[0].shortenedUrls
+
+
+        if (usersUrls.rows[0].shortenedUrls === null) {
+            user.rows[0].visitCount = 0
+            user.rows[0].shortenedUrls = []
+        } else {
+            const totalVistCount = (usersUrls.rows[0].shortenedUrls).reduce((acc, curr) => acc + parseInt(curr.visitCount), 0)
+            user.rows[0].visitCount = totalVistCount
+            user.rows[0].shortenedUrls = usersUrls.rows[0].shortenedUrls
+        }
 
         res.status(200).send(user.rows[0])
 

@@ -12,6 +12,7 @@ export async function authValidation(req, res, next) {
    
 
     if (!token) return res.sendStatus(401)
+    console.log(token)
 
     res.locals.token = token
 
