@@ -103,3 +103,22 @@ export async function redirectToUrl(req, res) {
 
     }
 }
+
+export async function deleteUserUrl(req, res) {
+
+    const token = res.locals.token
+    const {id} = req.params
+    try {
+        const checkUserUrl = await db.query(`SELECT * FROM sessions JOIN urls ON urls.user_id = sessions.user_id WHERE token = $1`,[token])
+        if(!checkUserUrl.rows[0]) return res.sendStatus(401)
+       const test = await db.query(`DELETE FROM urls WHERE id = $1`,[id])
+       if (test.rowCount === 0 ) return res.sendStatus(404)
+       res.sendStatus(204)
+        
+    } catch (error) {
+        console.log(error.message)
+        return res.status(500).send(error.message)
+        
+    }
+
+}
