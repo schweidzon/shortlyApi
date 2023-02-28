@@ -118,10 +118,10 @@ export async function deleteUserUrl(req, res) {
     const token = res.locals.token
     const { id } = req.params
     try {
-        const checkUserUrl = await db.query(`SELECT * FROM sessions JOIN urls ON urls.user_id = sessions.user_id WHERE token = $1`, [token])
-        if (!checkUserUrl.rows[0]) return res.sendStatus(401)
         const checkIfUrlIdExist = await db.query(`SELECT * FROM urls WHERE id = $1`, [id])
         if (!checkIfUrlIdExist.rows[0]) return res.sendStatus(404)
+        const checkUserUrl = await db.query(`SELECT * FROM sessions JOIN urls ON urls.user_id = sessions.user_id WHERE token = $1`, [token])
+        if (!checkUserUrl.rows[0]) return res.sendStatus(401)
         await db.query(`DELETE FROM urls WHERE id = $1`, [id])
 
         res.sendStatus(204)
