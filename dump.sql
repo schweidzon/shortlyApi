@@ -96,7 +96,8 @@ CREATE TABLE public.users (
     email character varying(320) NOT NULL,
     password character varying(60) NOT NULL,
     "linksCount" integer DEFAULT 0 NOT NULL,
-    "createdAt" timestamp without time zone DEFAULT now() NOT NULL
+    "createdAt" timestamp without time zone DEFAULT now() NOT NULL,
+    "visitCount" integer DEFAULT 0 NOT NULL
 );
 
 
@@ -181,28 +182,29 @@ INSERT INTO public.sessions VALUES (29, 13, '36913552-9aab-4353-b8c9-301028102b5
 --
 
 INSERT INTO public.urls VALUES (4, 13, 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'tMiOtUAT', 0, '2023-02-28 09:05:34.663249');
-INSERT INTO public.urls VALUES (6, 13, 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'SzrULmWo', 0, '2023-02-28 09:05:35.748634');
-INSERT INTO public.urls VALUES (7, 13, 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'WrvfJD-1', 0, '2023-02-28 09:05:35.910392');
 INSERT INTO public.urls VALUES (8, 13, 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'OPU3z8Aa', 0, '2023-02-28 09:09:26.40864');
 INSERT INTO public.urls VALUES (9, 13, 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', '_paMiiI7', 0, '2023-02-28 09:09:26.993886');
 INSERT INTO public.urls VALUES (10, 13, 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'ffJgfWX1', 0, '2023-02-28 09:09:27.590024');
+INSERT INTO public.urls VALUES (11, 13, 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', '--GNLVFn', 0, '2023-02-28 09:17:18.867627');
+INSERT INTO public.urls VALUES (6, 13, 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'SzrULmWo', 5, '2023-02-28 09:05:35.748634');
+INSERT INTO public.urls VALUES (7, 13, 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'WrvfJD-1', 4, '2023-02-28 09:05:35.910392');
 
 
 --
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-INSERT INTO public.users VALUES (1, 'Davi Lucas Macedo', 'alexandre@gmail.com', '$2b$10$jOvU7zZ3MWtyQEW1JooVa.wCllH.QFl58179b9UtXPc7Bk0BeTLIK', 0, '2023-02-27 17:09:59.090377');
-INSERT INTO public.users VALUES (2, 'Davi Lucas Macedo', 'alexandree@gmail.com', '$2b$10$k9PFM8g04aIzciAMcJWd1OXeLejeKlFFvEQbL3x1fdUZ/q6kGqZxa', 0, '2023-02-27 17:58:55.229279');
-INSERT INTO public.users VALUES (3, 'Davi Lucas Macedo', 'alexandree2@gmail.com', '$2b$10$FUe7heInH1wJnKtzYgOHTugzDgBIyvhuiEmbDcgBdP9yYKa8uosCm', 0, '2023-02-27 18:00:01.294043');
-INSERT INTO public.users VALUES (4, 'Felícia Martins', 'yago_moraes@live.com', '$2b$10$hlZhfD4EkYgpMRkQTPy5UujDxkpNqcX4ftbZm3dzL9xCjTezxPnqK', 0, '2023-02-27 18:02:17.557946');
-INSERT INTO public.users VALUES (5, 'Silas Reis ', 'oflia_franco13@hotmail.com', '$2b$10$oJbWYzKcA33bh74Q/FXxWO1ZrAqNuBpjRYWIk.VhpMxDqJ9RtOzV6', 0, '2023-02-27 18:20:50.551998');
-INSERT INTO public.users VALUES (6, 'Silas Reis ', 'rato123@hotmail.com', '$2b$10$tjqprN4ROFgndy/BHAU68uMiCxL2QLKkVdqNnQ/URu6/GevekL.OW', 0, '2023-02-27 18:23:16.665263');
-INSERT INTO public.users VALUES (7, 'Alice Saraiva', 'pedrohenrique_silva@bol.com.br', '$2b$10$VA9hrZik0DCQnt4y.ngQPeFd536YY9DsY6KtczeBQfrVsRJDNeSPu', 0, '2023-02-27 18:38:51.356452');
-INSERT INTO public.users VALUES (8, 'Alice Saraiva', 'pedrohenrique.silva@bol.com.br', '$2b$10$dCsQmJmF90t.ZgMv7heWROPWy5ci2at4Ujmvm5FwO1niUNNPGgih2', 0, '2023-02-27 18:47:16.840869');
-INSERT INTO public.users VALUES (11, 'danniel', 'dannielsch@gmail.com', '$2b$10$toc30eGLeD7DULcE99Im5O61fQscvj81d/OBHZwWNTATB7eVxNXPO', 0, '2023-02-27 20:55:32.834641');
-INSERT INTO public.users VALUES (12, 'danniel', 'dannielsch2@gmail.com', '$2b$10$p/Jj0VUscTA71DhnRZHWxuS.JD8dfz/7TzCOEoR0705kYKVinFeLW', 0, '2023-02-27 21:42:08.33581');
-INSERT INTO public.users VALUES (13, 'danniell', 'dannielsch3@gmail.com', '$2b$10$sCV9UO3U4wgbipMD/VpYfuuobzdjma.QItK5c79H74P0e0gpVYHfe', 3, '2023-02-28 08:31:22.500132');
+INSERT INTO public.users VALUES (1, 'Davi Lucas Macedo', 'alexandre@gmail.com', '$2b$10$jOvU7zZ3MWtyQEW1JooVa.wCllH.QFl58179b9UtXPc7Bk0BeTLIK', 0, '2023-02-27 17:09:59.090377', 0);
+INSERT INTO public.users VALUES (2, 'Davi Lucas Macedo', 'alexandree@gmail.com', '$2b$10$k9PFM8g04aIzciAMcJWd1OXeLejeKlFFvEQbL3x1fdUZ/q6kGqZxa', 0, '2023-02-27 17:58:55.229279', 0);
+INSERT INTO public.users VALUES (3, 'Davi Lucas Macedo', 'alexandree2@gmail.com', '$2b$10$FUe7heInH1wJnKtzYgOHTugzDgBIyvhuiEmbDcgBdP9yYKa8uosCm', 0, '2023-02-27 18:00:01.294043', 0);
+INSERT INTO public.users VALUES (4, 'Felícia Martins', 'yago_moraes@live.com', '$2b$10$hlZhfD4EkYgpMRkQTPy5UujDxkpNqcX4ftbZm3dzL9xCjTezxPnqK', 0, '2023-02-27 18:02:17.557946', 0);
+INSERT INTO public.users VALUES (5, 'Silas Reis ', 'oflia_franco13@hotmail.com', '$2b$10$oJbWYzKcA33bh74Q/FXxWO1ZrAqNuBpjRYWIk.VhpMxDqJ9RtOzV6', 0, '2023-02-27 18:20:50.551998', 0);
+INSERT INTO public.users VALUES (6, 'Silas Reis ', 'rato123@hotmail.com', '$2b$10$tjqprN4ROFgndy/BHAU68uMiCxL2QLKkVdqNnQ/URu6/GevekL.OW', 0, '2023-02-27 18:23:16.665263', 0);
+INSERT INTO public.users VALUES (7, 'Alice Saraiva', 'pedrohenrique_silva@bol.com.br', '$2b$10$VA9hrZik0DCQnt4y.ngQPeFd536YY9DsY6KtczeBQfrVsRJDNeSPu', 0, '2023-02-27 18:38:51.356452', 0);
+INSERT INTO public.users VALUES (8, 'Alice Saraiva', 'pedrohenrique.silva@bol.com.br', '$2b$10$dCsQmJmF90t.ZgMv7heWROPWy5ci2at4Ujmvm5FwO1niUNNPGgih2', 0, '2023-02-27 18:47:16.840869', 0);
+INSERT INTO public.users VALUES (11, 'danniel', 'dannielsch@gmail.com', '$2b$10$toc30eGLeD7DULcE99Im5O61fQscvj81d/OBHZwWNTATB7eVxNXPO', 0, '2023-02-27 20:55:32.834641', 0);
+INSERT INTO public.users VALUES (12, 'danniel', 'dannielsch2@gmail.com', '$2b$10$p/Jj0VUscTA71DhnRZHWxuS.JD8dfz/7TzCOEoR0705kYKVinFeLW', 0, '2023-02-27 21:42:08.33581', 0);
+INSERT INTO public.users VALUES (13, 'danniell', 'dannielsch3@gmail.com', '$2b$10$sCV9UO3U4wgbipMD/VpYfuuobzdjma.QItK5c79H74P0e0gpVYHfe', 4, '2023-02-28 08:31:22.500132', 9);
 
 
 --
@@ -216,7 +218,7 @@ SELECT pg_catalog.setval('public.sessions_id_seq', 29, true);
 -- Name: urls_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.urls_id_seq', 10, true);
+SELECT pg_catalog.setval('public.urls_id_seq', 11, true);
 
 
 --

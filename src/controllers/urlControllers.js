@@ -1,6 +1,8 @@
 import { nanoid } from "nanoid";
 import db from "../config/database.js";
 
+
+
 export async function shortenUrl(req, res) {
 
     const { url } = req.body
@@ -73,9 +75,11 @@ export async function getUsersUrls(req, res) {
             user.rows[0].visitCount = 0
             user.rows[0].shortenedUrls = []
         } else {
-            const totalVistCount = (usersUrls.rows[0].shortenedUrls).reduce((acc, curr) => acc + parseInt(curr.visitCount), 0)
-            user.rows[0].visitCount = totalVistCount
+            const totalVisitCount = (usersUrls.rows[0].shortenedUrls).reduce((acc, curr) => acc + parseInt(curr.visitCount), 0)
+            user.rows[0].visitCount = totalVisitCount
             user.rows[0].shortenedUrls = usersUrls.rows[0].shortenedUrls
+            await db.query(`UPDATE users SET "visitCount" = $1 WHERE id = $2`, [totalVisitCount ,user.rows[0].id])
+           
         }
 
         res.status(200).send(user.rows[0])
@@ -125,5 +129,22 @@ export async function deleteUserUrl(req, res) {
         return res.status(500).send(error.message)
 
     }
+
+}
+
+export async function getUsersRaking(req, res) {
+    try {
+        const users = await db.query(`SELECT * FROM users ORDER BY "visitCount" DESC LIMIT 10`)
+        res.send(users.rows)
+        
+    } catch (error) {
+        console.log(error.message)
+        return res.status(500).send(error.message)
+        
+    }
+  
+   
+
+  
 
 }
