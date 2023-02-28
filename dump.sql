@@ -181,9 +181,11 @@ INSERT INTO public.sessions VALUES (29, 13, '36913552-9aab-4353-b8c9-301028102b5
 --
 
 INSERT INTO public.urls VALUES (4, 13, 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'tMiOtUAT', 0, '2023-02-28 09:05:34.663249');
-INSERT INTO public.urls VALUES (5, 13, 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'NUJNKmrQ', 0, '2023-02-28 09:05:35.366326');
 INSERT INTO public.urls VALUES (6, 13, 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'SzrULmWo', 0, '2023-02-28 09:05:35.748634');
 INSERT INTO public.urls VALUES (7, 13, 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'WrvfJD-1', 0, '2023-02-28 09:05:35.910392');
+INSERT INTO public.urls VALUES (8, 13, 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'OPU3z8Aa', 0, '2023-02-28 09:09:26.40864');
+INSERT INTO public.urls VALUES (9, 13, 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', '_paMiiI7', 0, '2023-02-28 09:09:26.993886');
+INSERT INTO public.urls VALUES (10, 13, 'http://img.ibxk.com.br/2022/03/07/07150401099303.jpg', 'ffJgfWX1', 0, '2023-02-28 09:09:27.590024');
 
 
 --
@@ -200,7 +202,7 @@ INSERT INTO public.users VALUES (7, 'Alice Saraiva', 'pedrohenrique_silva@bol.co
 INSERT INTO public.users VALUES (8, 'Alice Saraiva', 'pedrohenrique.silva@bol.com.br', '$2b$10$dCsQmJmF90t.ZgMv7heWROPWy5ci2at4Ujmvm5FwO1niUNNPGgih2', 0, '2023-02-27 18:47:16.840869');
 INSERT INTO public.users VALUES (11, 'danniel', 'dannielsch@gmail.com', '$2b$10$toc30eGLeD7DULcE99Im5O61fQscvj81d/OBHZwWNTATB7eVxNXPO', 0, '2023-02-27 20:55:32.834641');
 INSERT INTO public.users VALUES (12, 'danniel', 'dannielsch2@gmail.com', '$2b$10$p/Jj0VUscTA71DhnRZHWxuS.JD8dfz/7TzCOEoR0705kYKVinFeLW', 0, '2023-02-27 21:42:08.33581');
-INSERT INTO public.users VALUES (13, 'danniell', 'dannielsch3@gmail.com', '$2b$10$sCV9UO3U4wgbipMD/VpYfuuobzdjma.QItK5c79H74P0e0gpVYHfe', 0, '2023-02-28 08:31:22.500132');
+INSERT INTO public.users VALUES (13, 'danniell', 'dannielsch3@gmail.com', '$2b$10$sCV9UO3U4wgbipMD/VpYfuuobzdjma.QItK5c79H74P0e0gpVYHfe', 3, '2023-02-28 08:31:22.500132');
 
 
 --
@@ -214,7 +216,7 @@ SELECT pg_catalog.setval('public.sessions_id_seq', 29, true);
 -- Name: urls_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.urls_id_seq', 7, true);
+SELECT pg_catalog.setval('public.urls_id_seq', 10, true);
 
 
 --

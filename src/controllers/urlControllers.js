@@ -16,9 +16,12 @@ export async function shortenUrl(req, res) {
 
         const getUserId = await db.query(`SELECT * FROM sessions JOIN users ON users.id = sessions.user_id WHERE token = $1`, [token])
 
-        console.log(getUserId.rows[0].user_id)
+
 
         const urlInsertion = await db.query(`INSERT INTO urls (user_id, url, "shortUrl") VALUES ($1, $2, $3) RETURNING id`, [getUserId.rows[0].user_id, url, shortUrl])
+
+        await db.query(`UPDATE users SET "linksCount" = "linksCount" + 1 WHERE id = $1`, [getUserId.rows[0].user_id])
+
 
         res.status(201).send({ id: urlInsertion.rows[0].id, shortUrl })
 
@@ -107,18 +110,20 @@ export async function redirectToUrl(req, res) {
 export async function deleteUserUrl(req, res) {
 
     const token = res.locals.token
-    const {id} = req.params
+    const { id } = req.params
     try {
-        const checkUserUrl = await db.query(`SELECT * FROM sessions JOIN urls ON urls.user_id = sessions.user_id WHERE token = $1`,[token])
-        if(!checkUserUrl.rows[0]) return res.sendStatus(401)
-       const test = await db.query(`DELETE FROM urls WHERE id = $1`,[id])
-       if (test.rowCount === 0 ) return res.sendStatus(404)
-       res.sendStatus(204)
-        
+        const checkUserUrl = await db.query(`SELECT * FROM sessions JOIN urls ON urls.user_id = sessions.user_id WHERE token = $1`, [token])
+        if (!checkUserUrl.rows[0]) return res.sendStatus(401)
+        const checkIfUrlIdExist = await db.query(`SELECT * FROM urls WHERE id = $1`, [id])
+        if (!checkIfUrlIdExist.rows[0]) return res.sendStatus(404)
+        await db.query(`DELETE FROM urls WHERE id = $1`, [id])
+
+        res.sendStatus(204)
+
     } catch (error) {
         console.log(error.message)
         return res.status(500).send(error.message)
-        
+
     }
 
 }
