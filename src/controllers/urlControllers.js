@@ -136,7 +136,7 @@ export async function deleteUserUrl(req, res) {
 
 export async function getUsersRaking(req, res) {
     try {
-        const users = await db.query(`SELECT * FROM users ORDER BY "visitCount" DESC LIMIT 10`)
+        const users = await db.query(`SELECT id, name, "linksCount", "visitCount" FROM users ORDER BY "visitCount" DESC LIMIT 10`)
         res.send(users.rows)
         
     } catch (error) {
